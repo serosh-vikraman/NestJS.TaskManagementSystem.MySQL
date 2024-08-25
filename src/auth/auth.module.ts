@@ -12,12 +12,12 @@ import { JwtModule } from '@nestjs/jwt';
     TypeOrmModule.forFeature([User]), // Import the User entity
     PassportModule.register({ defaultStrategy: 'jwt' }), // Configure Passport with JWT strategy
     JwtModule.register({
-      secret: 'yourSecretKey', // Use a strong secret key
-      signOptions: { expiresIn: '1h' }, // Token expiration
+      secret: 'topSecret51', // Use a strong secret key
+      signOptions: { expiresIn: 3600 }, // Token expiration
     }),
   ],
   providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
-  exports: [JwtStrategy, PassportModule],  // Exporting modules for use in other modules
+  exports: [JwtStrategy, PassportModule], // Exporting modules for use in other modules
 })
 export class AuthModule {}
